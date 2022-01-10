@@ -1,6 +1,6 @@
 ---
 title: "Introduction to R Programming"
-author: "Sana Rasheed"
+author: "Asad Ullah"
 date: "May 14, 2020"
 output: html_document
 ---
@@ -24,27 +24,43 @@ output: html_document
 
 ```{r }
 #### Start solution ####
+#1
+A <- c('a','s','a','d')
+A
 ```
 
 
 ```{r }
+b <- "asad"
 
+
+c(A,b)
 ```
 
 
 ```{r }
-
+y <- 100:120
+y
 ```
 
 
 ```{r }
-
+f <- c(2,4,6,8,10,12,14,16,18)
+m <- matrix(f,nrow = 3,ncol = 3)
+m
 ```
 
 
 ```{r }
+f <- c(2,4,6,8,10,12,14,16,18)
+m <- matrix(f,nrow = 3,ncol = 3)
+m
+dimnames(m)
 
-```
+dimnames(m) <- list(c("r1","r2","r3"),c("cl1","cl2","r3"))
+dimnames(m)
+m
+`
 
 
 ```{r }
@@ -60,16 +76,23 @@ output: html_document
 
 ```{r }
 #### Start solution ####
+
+v <- (c("Unemployed","Employed","Self-Employed","Employed","Unemployed","Employed","Self-Employed","Employed","Unemployed"))
+v
 ```
 
 
 ```{r }
-
+v <- factor(c("Unemployed","Employed","Self-Employed","Employed","Unemployed","Employed","Self-Employed","Employed","Unemployed"))
+v
+table(v)
 ```
 
 
 ```{r }
-
+v <- factor(c("Unemployed","Employed","Self-Employed","Employed","Unemployed","Employed","Self-Employed","Employed","Unemployed"), levels = c("Unemployed","Employed","Self-Employed"))
+v
+unclass(v)
 ```
 
 
