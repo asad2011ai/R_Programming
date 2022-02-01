@@ -120,26 +120,32 @@ unclass(v)
 
 ```{r }
 #### Start solution ####
+
+x <- data.frame(CustomerID =c(), hasAccount=c(), totalBalance=c())
+x
+```
+
+
+
+```{r }
+x <- data.frame(CustomerID =c("Alicia","Nancy","Fernando","Louis","Diane"), hasAccount=c("No","yes","yes","yes","No"), totalBalance=c(NA,10000,NA,2000,NA))
+x
 ```
 
 
 ```{r }
+names(x)
+```
+
+
+```{r }
+nrow(x)
 
 ```
 
 
 ```{r }
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
+ncol(x)
 ```
 
 

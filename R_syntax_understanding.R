@@ -54,13 +54,19 @@ class(y)
 
 x <- 0:6
 class(x)
+x
 as.numeric(x)
+class(x)
+x
 as.complex(x)
 class(x)
-as.logical(x)
-as.character(x)
 x
-
+as.logical(x)
+class(x)
+x
+as.character(x)
+class(x)
+x
 x <- c('a','b','c')
 as.numeric(x)
 as.logical(x)
@@ -84,7 +90,9 @@ f
 ########################################################################333
 # binding and listing
 h <- 1:3
+h
 g <- 10:12
+g
 
 cbind(h,g)
 rbind(h,g)
@@ -105,7 +113,7 @@ unclass(x)
 t <- factor(c('asad','bilal','bilal','bilal','asad'),levels =c('bilal','asad'))
 t
 table(t)
-unclass(t)
+
 ################################################################################3
 # missing Values
 is.na() # tell about null value
@@ -133,6 +141,7 @@ x
 #object name
 
 m <- 1:4
+m
 names(m)
 names(m) <- c('col_A','col_B','col_C','col_D')
 names(m)
@@ -140,9 +149,10 @@ names(m)
 u <- list(a=1:5,b="ID",c=c("Names","apple"))
 u
 u$c
-
+u$a
 # add matrices
 m <- matrix(1:4 , nrow = 2,ncol = 2)
+m
 dimnames(m)
 dimnames(m) <- list(c('r1','r2'),c('c1','c2'))
 dimnames(m)
@@ -150,3 +160,76 @@ m
 ###############################################################
 #summary()
 ###############################################################
+#subset _ vector _ Matrix
+x <- c("a","b","c","d","e")
+x
+x[1]
+x[2]
+x[1:3]
+x[x > "b"]
+u <- x > "a"
+u
+x[u]
+#--------------
+# matrix can be subsetted in the usual way with (i,j) type indicies
+x <- matrix(1:6, 2,3)
+x
+x[1:2]
+# indices can also be missing
+x[1,]
+x[,2]
+# subsetting in the matrix form
+x <- matrix(1:6,2,3)
+x
+x[1,2]
+x[1,2, drop=FALSE]
+x[1,, drop=FALSE]
+#########################################################
+#subsetting with list
+
+x <- list(weekday=1:4,rain_prob=0.6)
+x
+x[1]
+x[[1]]
+x$weekday
+x$rain_prob
+x["rain_prob"]
+#-----------------------
+x <- list(weekday=1:4,rain_prob=0.6, item="umbrella")
+x
+x[c(1,3)]
+x$item
+
+name <- "weekday"
+x[[name]]
+x$name
+x$weekday
+x <- list(a=list(10,11,15),b=c(3.14,2.81))
+x[[c(1,2)]]
+x[[1]][[2]]
+x[[c(2,2)]]
+################################################################
+# missing values
+x <- c(1,2,NA,3,NA,4)
+x
+is.na(x)
+bad <- is.na(x)
+bad
+x[!bad]
+#-------------------------------------------
+x <- c(1,2,NA,5,7,NA)
+y <- c(1,9,5,NA,20,NA)
+good <- complete.cases(x,y)
+good
+x[good]
+y[good]
+airquality
+View(airquality)
+a <- airquality
+good <- complete.cases(a[1:6,])
+a[1:6]
+a[good,][1:6,]
+b <- a[good]
+############################################
+# control structure
+
