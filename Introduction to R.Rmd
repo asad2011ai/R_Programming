@@ -168,26 +168,70 @@ ncol(x)
 
 ```{r }
 #### Start solution ####
+
+n <- 1:100
+for(i in seq_along(n)){
+  prime=TRUE
+  j=2
+  if(i>=2){
+    while (j<= i/2) {
+      if (i %% j == 0){
+        prime = FALSE
+        break
+      }
+    j=j+1
+      
+    }
+    if (prime == TRUE){
+      print(i)
+    }
+  }
+  
+}
 ```
 
 
 ```{r }
+n <- 1:100
+count=0
+for(i in seq_along(n)){
+  prime=TRUE
+  j=2
+  if(i>=2){
+    while (j<= i/2) {
+      if (i %% j == 0){
+        prime = FALSE
+        break
+      }
+    j=j+1
+      
+    }
+    if (prime == TRUE){
+      count = count+1
+      print(i)
+    }
+  }
+  if(count==10){
+    print("prime number is 10 completed")
+    break
+  }
+}
+```
+
+
+
+```{r }
+
 
 ```
 
 
 ```{r }
-
 ```
 
 
 ```{r }
-
-```
-
-
-```{r }
-
+2/1
 ```
 
 
@@ -207,15 +251,29 @@ ncol(x)
 
 ```{r }
 #### Start solution ####
+mat_1 <- matrix(1:9, nrow = 3,ncol = 3)
+mat_1
+nrow(mat_1)
+ncol(mat_1)
+```
+
+
+```{r }
+mat_1 <- matrix(1:9, nrow = 3,ncol = 3)
+for (i in seq_len(nrow(mat_1))){
+  for (j in seq_len(ncol(mat_1))){
+    f=mat_1[i,j]
+    p= c(i,j,f)
+    print(p)
+    
+    
+    }
+}
 ```
 
 
 ```{r }
 
-```
-
-
-```{r }
 
 ```
 
@@ -256,12 +314,31 @@ ncol(x)
 
 
 ```{r }
+gcd <- function(a,b){
+  if(a>b){
+    s_val=b
+  }
+  else{
+    s_val=a
+  }
+  for (i in 1:s_val) {
+    if((a %% i == 0) && (b %% i ==0)){
+      gcd_val = i
+      
+    }
+    
+  }
+  print(gcd_val)
+  return(gcd_val)
+}
+
 
 ```
 
 
 ```{r }
-
+answer <- gcd(45,10)
+answer
 ```
 
 
@@ -298,17 +375,29 @@ ncol(x)
 
 
 ```{r }
-
+allconditionsmeet <- function(a,b){
+  print(paste("1st value is: ",a))
+  print(paste("2nd value is: ",b))
+  flag=FALSE
+  if((a==b)&&(a %% b==0)){
+    flag=TRUE
+  }
+  
+  return(flag)
+  
+}
 ```
 
 
 ```{r }
-
+z <-allconditionsmeet(2,3)
+z
 ```
 
 
 ```{r }
-
+z <-allconditionsmeet(2,2)
+z
 ```
 
 
@@ -341,21 +430,37 @@ ncol(x)
 
 ```{r }
 #### Start solution ####
+matrix_1 <- matrix(1:6,nrow = 2,ncol = 3)
+matrix_2 <- matrix(1:6,nrow = 3,ncol = 2)
+matrix_1
+matrix_2
 ```
 
 
 ```{r }
+#for element wise multiplication both matrix should have same dimession
+matrix_1%*%matrix_2
+matrix_1*matrix_2
 
 ```
 
 
 ```{r }
-
+mymat <- matrix(1:4,nrow = 2,ncol = 2)
+f <- function(a){
+  b=a[1,1]
+  c=a[2,2]
+  d=a[1,2]
+  e=a[2,1]
+  h=((b*c)-(d*e))
+  return(print(paste("determinant of the matrix is:",h)))
+}
 ```
 
 
 ```{r }
-
+mymat
+f(mymat)
 ```
 
 
@@ -389,31 +494,45 @@ ncol(x)
 
 
 ```{r }
+curr_time <- Sys.time()
+curr_time
+```
+
+
+```{r }
+curr_date <- Sys.Date()
+curr_date
+```
+
+
+```{r }
+curr_date <- as.POSIXlt(curr_date)
+curr_time <- as.POSIXlt(curr_time)
+curr_time
+curr_date
+```
+
+
+```{r }
+names(unclass(curr_time))
+#d <- strptime(curr_time,"%Y,%b,%d, %H:%M")
 
 ```
 
 
 ```{r }
-
+print(paste("current hour is: ",curr_time$hour))
+print(paste("current minute is: ",curr_time$min))
+print(paste("current second is: ",curr_time$sec))
 ```
 
 
 ```{r }
 
-```
+print(paste("current year is: ",format(curr_date,"%y")))
+print(paste("current month is: ",format(curr_date,"%b")))
+print(paste("current day is: ",format(curr_date,"%d")))
 
-
-```{r }
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
 #### End solution ####
 ```
 
@@ -429,12 +548,16 @@ ncol(x)
 
 
 ```{r }
+t <- Sys.time()
+t
+y <- as.POSIXct(t, tz = "GMT-5")
+y
 
 ```
 
 
 ```{r }
-
+t-y
 ```
 
 
@@ -473,26 +596,32 @@ ncol(x)
 
 
 ```{r }
-
+numbers <- 100:150
+numbers
 ```
 
 
 ```{r }
-
+head(lapply(numbers, mean))
 ```
 
 
 ```{r }
-
+head(sapply(numbers, mean))
 ```
 
 
 ```{r }
-
+numbers <- matrix(numbers,10,5 )
+apply(numbers, 1, quantile, probs=c(0.25,0.75))
 ```
 
 
 ```{r }
+numbers
+f <- gl(5,10)
+f
+tapply(numbers, f, mean)
 
 ```
 
@@ -509,16 +638,17 @@ ncol(x)
 
 ```{r }
 #### Start solution ####
+numbers
 ```
 
 
 ```{r }
-
+rowMeans(numbers)
 ```
 
 
 ```{r }
-
+colMeans(numbers)
 ```
 
 
@@ -567,26 +697,31 @@ head(Orange)
 
 ```{r }
 #### Start solution ####
+split_data <- split(Orange,Orange$circumference)
 ```
 
 
 ```{r }
-
+t <- split_data$`30`
+t
 ```
 
 
 ```{r }
+s <- split_data$'75'
+s
+```
 
+
+
+```{r }
+mean(t$age)
 ```
 
 
 ```{r }
-
-```
-
-
-```{r }
-
+f <- split_data$`214`
+mean(f$age)
 ```
 
 
