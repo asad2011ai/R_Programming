@@ -232,4 +232,221 @@ a[good,][1:6,]
 b <- a[good]
 ############################################
 # control structure
+# if else condition
+x <- 6
+y <- 0
+if (x > 3){
+  y <- 10
+}else {
+  y <-0
+}
+y
 
+y <- if(x >3){
+  10
+}else{
+  0
+}
+y
+#--------------------------
+# for loop
+x <- c("a","b","c","d")
+for (i in 1:4){
+  print(x[i])
+}
+
+for (i in seq_along(x)){
+  print(x[i])
+}
+
+for (letter in x){
+  print(letter)
+}
+
+for (i in 1:4) print(x[i])
+# nested for loop
+x <- matrix(1:6, 2,3)
+x
+
+for (i in 
+     seq_len(nrow(x))) {
+  for(j in seq_len(ncol(x))) {
+    print(x[i,j])
+  }
+}
+# ----------------------------
+# while loop
+
+count <- 0
+while (count < 10) {
+  print(count)
+  count <- count+1
+  
+}
+
+z <- 5
+while (z >=3 && z<=10){
+  print(z)
+  coin <- rbinom(1,1,0.5)
+  if (coin == 1){
+    z <- z+1
+  }else{
+    z <- z-1
+  }
+}
+###########################################
+# function
+mydata <- rnorm(100)
+mydata
+sd(x=mydata)
+sd(x=mydata, na.rm = FALSE)
+#------
+mydata <- data.frame(x=rnorm(100),y= rnorm(100))
+lm(y ~ x, mydata, model = FALSE)
+lm(data=mydata, y~x, model = FALSE, 1:100)
+#---------------
+f <- function(a,b=1,c=2,d=NULL){
+
+}
+f <- function(a,b){
+  a^2
+  
+}
+f(2)
+
+f <- function(a,b,c=NULL){
+  print(a)
+  print(b)
+  print(c)
+}
+f(b=2,a=3)
+f(10,8,5)
+################################################
+# Vectorize Operation
+x <- 1:4; y <-6:9
+x
+y
+x+y
+x >2
+y==8
+x*y
+x/y
+#---------------------
+x <- matrix(1:4,2,2); y <- matrix(rep(10,4), 2,2)
+x
+y
+x+y
+x*y
+x/y
+x
+y
+x%*%y
+###########################################
+# Date and Time
+x <- Sys.time()
+x
+p <- as.POSIXlt(x)
+p
+names(unclass(p))
+p$sec
+p <- as.POSIXct(x)
+p
+names(unclass(p))
+x$sec
+p$sec
+#---------------------------
+# time formate
+datestring <- c("January 10, 2012 10:40","December 9, 2011 9:10")
+x <- strptime(datestring,"%B %d, %Y %H:%M")
+x
+class(x)
+#----------------------
+x <- as.Date("2012-01-01")
+y <- strptime("9 jan 2011 11:34:21", "%d %b %Y %H:%M:%S")
+x
+y
+x-y
+class(x)
+class(y)
+x <- as.POSIXlt(x)
+x-y
+#------------------------
+# operation on Dates and Time 
+x <- as.Date("2012-03-01")
+y <- as.Date("2012-02-28")
+x-y
+
+x <- as.POSIXct("2012-10-25 01:00:00")
+y <- as.POSIXct("2012-10-25 06:00:00", tz = "GMT")
+y
+x
+y-x
+###################################
+# loop fuction
+#Lapply
+x <- list(a =1:5,b=rnorm(10))
+x
+
+lapply(x, mean)
+
+
+x <- list(a=1:4, b=rnorm(10),c=rnorm(20,1), d= rnorm(100,5))
+x
+lapply(x, mean)
+x <- 1:4
+lapply(x, runif)
+lapply(x, runif, min=50, max=100)
+#Sapply
+x <- list(a=1:4, b=rnorm(10),c=rnorm(20,1), d= rnorm(100,5))
+x
+sapply(x, mean)
+x <- 1:4
+x
+z <- sapply(x, mean)
+class(z)
+# apply
+x <- matrix(rnorm(200),20,10 )
+x
+apply(x, 2, mean)
+apply(x, 1, mean)
+rowSums(x)
+rowMeans(x)
+colSums(x)
+colMeans(x)
+x <- matrix(rnorm(200),20,10 )
+apply(x, 1, quantile, probs=c(0.25,0.75))
+?quantile
+#tapply
+x <- c(rnorm(10), runif(10),rnorm(10), rnorm(10,1))
+x
+f <- gl(4,10)
+f
+tapply(x, f, mean)
+tapply(x, f, mean, simplify = FALSE)
+tapply(x, f, range)
+###############################################
+#split
+x <- c(rnorm(10), runif(10),rnorm(10), rnorm(10,1))
+x
+f <- gl(4,10)
+f
+split(x, f)
+lapply(split(x,f), mean)
+#----------
+library(datasets)
+
+head(airquality)
+s <- split(airquality, airquality$Month, mean)
+s
+s$`6`
+head(s)
+mean(s)
+table(airquality$Month)
+fc <- function(x) colSums(x[,c("Ozone","Solar.R","Wind")])
+fc
+sfc <- function(x) colSums(x[,c("Ozone","Solar.R","Wind")],na.rm = TRUE)
+sfc
+lapply(s, function(x) colSums(x[,c("Ozone","Solar.R","Wind")]) )
+sapply(s, function(x) colSums(x[,c("Ozone","Solar.R","Wind")],na.rm = TRUE) )
+sapply(s, fc)
+sapply(s, sfc)
