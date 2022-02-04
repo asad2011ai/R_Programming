@@ -440,7 +440,7 @@ matrix_2
 ```{r }
 #for element wise multiplication both matrix should have same dimession
 matrix_1%*%matrix_2
-matrix_1*matrix_2
+#matrix_1*matrix_2
 
 ```
 
