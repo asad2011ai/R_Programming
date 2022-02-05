@@ -60,10 +60,9 @@ dimnames(m)
 dimnames(m) <- list(c("r1","r2","r3"),c("cl1","cl2","r3"))
 dimnames(m)
 m
-`
+```
 
-
-```{r }
+````{r }
 #### End solution ####
 ```
 
