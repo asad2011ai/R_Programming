@@ -563,14 +563,14 @@ f &lt;- function(a){
 <pre class="r"><code>#### Start solution ####</code></pre>
 <pre class="r"><code>curr_time &lt;- Sys.time()
 curr_time</code></pre>
-<pre><code>## [1] &quot;2022-02-05 23:20:17 PKT&quot;</code></pre>
+<pre><code>## [1] &quot;2022-02-05 23:29:22 PKT&quot;</code></pre>
 <pre class="r"><code>curr_date &lt;- Sys.Date()
 curr_date</code></pre>
 <pre><code>## [1] &quot;2022-02-05&quot;</code></pre>
 <pre class="r"><code>curr_date &lt;- as.POSIXlt(curr_date)
 curr_time &lt;- as.POSIXlt(curr_time)
 curr_time</code></pre>
-<pre><code>## [1] &quot;2022-02-05 23:20:17 PKT&quot;</code></pre>
+<pre><code>## [1] &quot;2022-02-05 23:29:22 PKT&quot;</code></pre>
 <pre class="r"><code>curr_date</code></pre>
 <pre><code>## [1] &quot;2022-02-05 UTC&quot;</code></pre>
 <pre class="r"><code>names(unclass(curr_time))</code></pre>
@@ -580,9 +580,9 @@ curr_time</code></pre>
 <pre class="r"><code>print(paste(&quot;current hour is: &quot;,curr_time$hour))</code></pre>
 <pre><code>## [1] &quot;current hour is:  23&quot;</code></pre>
 <pre class="r"><code>print(paste(&quot;current minute is: &quot;,curr_time$min))</code></pre>
-<pre><code>## [1] &quot;current minute is:  20&quot;</code></pre>
+<pre><code>## [1] &quot;current minute is:  29&quot;</code></pre>
 <pre class="r"><code>print(paste(&quot;current second is: &quot;,curr_time$sec))</code></pre>
-<pre><code>## [1] &quot;current second is:  17.1747069358826&quot;</code></pre>
+<pre><code>## [1] &quot;current second is:  22.8845160007477&quot;</code></pre>
 <pre class="r"><code>print(paste(&quot;current year is: &quot;,format(curr_date,&quot;%y&quot;)))</code></pre>
 <pre><code>## [1] &quot;current year is:  22&quot;</code></pre>
 <pre class="r"><code>print(paste(&quot;current month is: &quot;,format(curr_date,&quot;%b&quot;)))</code></pre>
@@ -599,10 +599,10 @@ curr_time</code></pre>
 <pre class="r"><code>#### Start solution ####</code></pre>
 <pre class="r"><code>t &lt;- Sys.time()
 t</code></pre>
-<pre><code>## [1] &quot;2022-02-05 23:20:18 PKT&quot;</code></pre>
+<pre><code>## [1] &quot;2022-02-05 23:29:23 PKT&quot;</code></pre>
 <pre class="r"><code>y &lt;- as.POSIXct(t, tz = &quot;GMT-5&quot;)
 y</code></pre>
-<pre><code>## [1] &quot;2022-02-05 23:20:18 PKT&quot;</code></pre>
+<pre><code>## [1] &quot;2022-02-05 23:29:23 PKT&quot;</code></pre>
 <pre class="r"><code>t-y</code></pre>
 <pre><code>## Time difference of 0 secs</code></pre>
 <pre class="r"><code>#### End solution ####</code></pre>
